@@ -1,0 +1,146 @@
+.header-brand-logo{
+    width: 210px;
+    /* height: 50px; */
+}
+.stemp-logo{
+    width: 140px !important; 
+}
+
+span, div, p {
+    font-size: 12px !important;
+}
+.text-end {
+    text-align: end;
+}
+.d-flex{
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+table td{
+    font-size: 12px !important;
+}
+table th{
+    font-size: 12px !important;
+}
+.line-title {
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+}
+.row{
+    display: -webkit-box;
+    flex-wrap: wrap;
+}
+.print-budget-section thead, tr, th ,td{
+    border-width: 0.1px !important;
+    border-color: #000;
+    border-style: solid;
+    border: 1px solid black !important;
+}
+
+.table:not(.table-dark):not(.table-light) thead:not(.table-dark) th, .table:not(.table-dark):not(.table-light) tfoot:not(.table-dark) th {
+    background-color: #f3f2f7 !important;
+}
+
+.table > :not(:last-child) > :last-child > * {
+    border-bottom-color: #ebe9f1 !important;
+}
+
+.table > :not(caption) > * > * {
+    padding: 0.72rem 1rem !important;
+}
+
+#PrintWoTemplatePopup .attachment-section {
+    -moz-column-gap: 1rem;
+    column-gap: 1rem;
+    row-gap: 5px;
+}
+#PrintWoTemplatePopup .wo-img{
+    margin: 5px;
+}
+
+.print-template table tr th, .print-template table tr td{
+    padding: 2px !important;
+}
+
+span, div,h4,h5,td,th{
+    color: #000 !important;
+}
+
+.col-md-7 {
+    flex: 0 0 auto;
+    width: 58.33333%;
+}
+.col-md-5 {
+    flex: 0 0 auto;
+    width: 41.66667%;
+}
+
+.request-print-details tr,
+.request-print-details td{
+    border: 1px solid #000;
+    border-width: 1px;
+}
+.request-print-details thead th{
+    background-color: #000 !important;
+}
+
+
+/* .table:not(.table-dark):not(.table-light) thead:not(.table-dark) th, .table:not(.table-dark):not(.table-light) tfoot:not(.table-dark) th {
+  background-color: #000 !important;
+
+} */
+
+/* @page {
+    margin: 2mm 
+} */
+
+.header,.footer{
+    display: block;
+}
+.header, .header-space,
+.footer, .footer-space {
+  height: 100px;
+}
+.header {
+  position: fixed;
+  top: 0;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+}
+.header-space img{
+    display: none;
+}
+.footer-space img{
+    display: none;
+}
+  
+
+ 
+.border-none{
+    border-style: none !important; 
+}
+.request-print-details{
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.preview-text{
+    white-space: pre-wrap;
+    text-align: left;
+    background: #fff;
+    color: #000;
+}
+.header-space{
+    height: 165px;
+}
+
+.print-template table tr th, .print-template table tr td{
+    padding: 2px !important;
+}
+ 
+.font-weight-bold{
+    width: 118px !important;
+}

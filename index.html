@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- <base href="https://test-vue-project.azurewebsites.net/" /> -->
+    <!-- <base href="http://localhost:5173/" /> -->
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+
+    <title>EmiratesNFM Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="/src/assets/images/logo.png">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+   
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/vendors/css/charts/apexcharts.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/vendors/css/extensions/toastr.min.css"> 
+    <link rel="stylesheet" type="text/css"
+        href="/src/assets/app-assets/app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="/src/assets/app-assets/app-assets/vendors/css/tables/datatable/responsive.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="/src/assets/app-assets/app-assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css">
+      <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/vendors/css/forms/select/select2.min.css">
+      <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css">
+      <!-- <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/fonts/font-awesome/css/font-awesome.min.css"> -->
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- END: Vendor CSS-->
+
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/vendors/css/forms/wizard/bs-stepper.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/vendors/css/file-uploaders/dropzone.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/vendors/css/pickers/pickadate/pickadate.css"> 
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/vendors/css/extensions/jstree.min.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/pages/dashboard-ecommerce.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/plugins/charts/chart-apex.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/plugins/extensions/ext-component-toastr.css"> 
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/plugins/forms/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/plugins/extensions/ext-component-sweet-alerts.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/pages/app-email.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/plugins/forms/form-quill-editor.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/plugins/forms/form-wizard.css">
+    
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/plugins/forms/pickers/form-flat-pickr.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/plugins/forms/pickers/form-pickadate.css">
+    
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/plugins/forms/form-file-uploader.css">
+
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/plugins/extensions/ext-component-tree.css">
+ 
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/vendors/css/calendars/fullcalendar.min.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/pages/app-calendar.css">
+    
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/vendors/css/extensions/nouislider.min.css">
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/plugins/extensions/ext-component-sliders.css">
+
+    <!-- <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/plugins/extensions/ext-component-swiper.css"> -->
+ 
+
+    <!-- END: Page CSS-->
+    <!-- <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/video-js.css"> -->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/assets/css/style.css">
+    <!-- END: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/custom-style.css?version=1.0.3">
+
+    <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/jsuites.css">
+ 
+    <!-- <link rel="stylesheet" type="text/css" href="/src/assets/app-assets/app-assets/css/change-color-style.css"> -->
+
+     
+  </head>
+  <body 
+  class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col=""
+  >
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+
+
+ 
+    <!-- BEGIN: Vendor JS-->
+    <script src="/src/assets/app-assets/app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="/src/assets/app-assets/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js" defer></script>
+
+    <script src="/src/assets/app-assets/app-assets/vendors/js/charts/apexcharts.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/extensions/toastr.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/responsive.bootstrap5.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/buttons.bootstrap5.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    
+    <script src="/src/assets/app-assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/jszip.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script> 
+    <script src="/src/assets/app-assets/app-assets/vendors/js/forms/cleave/cleave.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/forms/cleave/addons/cleave-phone.us.js"></script>
+
+    <script src="/src/assets/app-assets/app-assets/vendors/js/pickers/pickadate/picker.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/pickers/pickadate/picker.date.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/pickers/pickadate/picker.time.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
+    
+    <script src="/src/assets/app-assets/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/extensions/polyfill.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/extensions/moment.min.js"></script> 
+    <script src="/src/assets/app-assets/app-assets/vendors/js/forms/wizard/bs-stepper.min.js"></script>
+  
+    <script  src="/src/assets/app-assets/app-assets/vendors/js/file-uploaders/dropzone.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/extensions/jstree.min.js"></script>
+    <!-- <script src="/src/assets/app-assets/app-assets/js/video.min.js"></script> -->
+    
+    <script src="/src/assets/app-assets/app-assets/vendors/js/extensions/wNumb.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/vendors/js/extensions/nouislider.min.js"></script>
+    
+    
+    <script src="/src/assets/app-assets/app-assets/vendors/js/forms/repeater/jquery.repeater.min.js"></script>
+    
+     
+    <script src="/src/assets/app-assets/app-assets/js/scripts/fullcalendar.global.min.js"></script>
+    <script src="/src/assets/app-assets/app-assets/js/scripts/jsuites.js"></script>
+    
+     
+    <!-- END: Page JS-->
+
+    <script>
+ 
+        function loadJS(FILE_URL, async) {
+            let dynamicScript = document.createElement("script");
+
+            dynamicScript.setAttribute("src", FILE_URL);
+            dynamicScript.setAttribute("type", "text/javascript");
+            dynamicScript.setAttribute("type", "module");
+            dynamicScript.setAttribute("async", async);
+
+            document.head.appendChild(dynamicScript);
+        }
+
+        function loadStylesheet(FILE_URL) {
+            let dynamicStylesheet = document.createElement("link");
+
+            dynamicStylesheet.setAttribute("href", FILE_URL);
+            dynamicStylesheet.setAttribute("type", "text/css");
+            dynamicStylesheet.setAttribute("rel", "stylesheet");
+
+            document.head.appendChild(dynamicStylesheet);
+        }
+         
+    </script>
+
+
+  </body>
+</html>

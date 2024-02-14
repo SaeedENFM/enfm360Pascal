@@ -1,0 +1,45 @@
+{
+  "name": "emiratesnfm-dashboard",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fullcalendar/core": "^6.1.8",
+    "@fullcalendar/daygrid": "^6.1.8",
+    "@fullcalendar/interaction": "^6.1.8",
+    "@fullcalendar/multimonth": "^6.1.8",
+    "@fullcalendar/timegrid": "^6.1.8",
+    "@fullcalendar/vue3": "^6.1.8",
+    "axios": "^1.4.0",
+    "chart.js": "^3.9.1",
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "datatables.net-bs5": "^1.13.5",
+    "datatables.net-buttons-bs5": "^2.4.1",
+    "datatables.net-vue3": "^2.1.1",
+    "dropzone": "^6.0.0-beta.2",
+    "highlight.js": "^11.8.0",
+    "jspdf": "^2.5.1",
+    "nouislider": "^15.7.1",
+    "paperizer": "^0.1.6",
+    "print-js": "^1.6.0",
+    "tailwindcss-transforms": "^2.2.0",
+    "tw-elements": "^1.0.0-beta2",
+    "vue": "^3.3.2",
+    "vue-chart-3": "^3.1.8",
+    "vue-html-to-paper": "^2.0.3",
+    "vue-plugin-load-script": "^2.1.1",
+    "vue-router": "^4.2.0",
+    "vue3-select2-component": "^0.1.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2",
+    "vite": "^4.3.5"
+  }
+}
