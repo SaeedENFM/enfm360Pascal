@@ -18,7 +18,7 @@
         <div class="drag-target"></div>
 
 
-        <FooterLayout/> 
+        <FooterLayout /> 
     
 
 </template>
@@ -31,7 +31,6 @@ import  * as external_link from '../extarnal_links.js';
 import  menu from '../../assets/menu';
 import  appJs from '../../assets/appJs';
 import  constents from '../../constents';
-
 
 
 import FooterLayout from './FooterLayout.vue';

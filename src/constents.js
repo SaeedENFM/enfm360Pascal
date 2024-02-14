@@ -6,8 +6,8 @@ var user = localStorage.user?JSON.parse(localStorage.user) : null;
 
 
 const token = user?.token ? user?.token : "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IklDTVNDU1IiLCJ1c2VyX25hbWUiOiJJQ01TQ1NSIn0.0ZbKPG-l8ILtIKX2a3QwLXU_kZnCtqcenjw_nR7LlU4";
-const baseUrl = 'http://localhost:8000/api/';
-// const baseUrl = 'https://enfm360-backand.emiratesnfm.ae/api/'; 
+// const baseUrl = 'http://localhost:8000/api/';
+const baseUrl = 'https://enfm360-backand.emiratesnfm.ae/api/'; 
 
 var isRtl = $('html').attr('data-textdirection') === 'rtl';
  
