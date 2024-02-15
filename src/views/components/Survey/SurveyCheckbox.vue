@@ -19,16 +19,17 @@ const props = defineProps(["dataCheckbox"]);
 
           <!--ANSWERS HEADER -->
           <th
-            scope="col"  class="text-center text-sm font-thin capitalize"
-            :class="{ 'border': props?.dataCheckbox?.position === 0 }" :style="{'min-width' : rep.answer_en.length + 'px'  }"
+            scope="col"  class="text-center border text-sm font-thin capitalize"
+             :style="{'width' : rep.answer_en.length + 'px'  }"
             v-for="rep in props.dataCheckbox.data.assertions[
               props?.dataCheckbox?.position
             ].answers[props.dataCheckbox.data.type]"
             :key="rep.id"
           >
-            <!--Make that all column fit suitable size -->
-            {{ props.dataCheckbox.position === 0 ? rep.answer_en : " " }}<br />
-            {{ props.dataCheckbox.position === 0 ? rep.answer_ar : " " }}
+            <!--Make all column fit suitable size -->
+           
+             ({{ rep.answer_en }}<br />
+             {{ rep.answer_ar }})
           </th>
         </tr>
       </thead>

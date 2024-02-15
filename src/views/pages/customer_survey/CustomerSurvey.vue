@@ -62,7 +62,7 @@ const servicesSignature = ref(services.filter((item) => item.type === "text"));
             style="height: calc(-7px + 100vh)"
           >
             <div>
-              
+
               <!-- body content -->
               <h1 class="text-dark text-center fw-bold mt-1">
                 {{ survey.title_en }} - {{ survey.title_ar }}
@@ -91,6 +91,7 @@ const servicesSignature = ref(services.filter((item) => item.type === "text"));
                   v-for="(tex, index2) in servicesText"
                   :key="tex.id"
                   :dataText="{ data: tex, position: index2 }"
+                  :class="mt-2"
                 />
 
                 <!--Loader survey signature type-->

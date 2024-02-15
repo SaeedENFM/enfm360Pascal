@@ -8,12 +8,12 @@ const props = defineProps(["dataText"]);
     <div class="mb-2">
       <div
         v-for="(survey, index) in props.dataText.data.assertions"
-        :key="survey.id"
+        :key="survey.id"  class="text-left"
       >
-        <label class="text-left">
+        <label class="mb-1">
           {{ survey.content_en }} - {{ survey.content_ar }}
         </label>
-        <!--Bind with model later e.target.value-->
+        <!--Bind with model-->
         <div class="col-auto">
           <textarea
             class="form-control"

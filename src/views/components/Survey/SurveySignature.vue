@@ -8,9 +8,9 @@ const props = defineProps(["dataSignature"]);
     <div class="mb-5 pb-4">
       <div
         v-for="(sign, index) in props.dataSignature.data.assertions"
-        :key="sign.id"
+        :key="sign.id"  class="text-right"
       >
-        <label>
+        <label class="mb-1">
           {{ sign.content_en }} <br />
           {{ sign.content_ar }}
         </label>
