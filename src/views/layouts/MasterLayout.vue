@@ -36,8 +36,9 @@ import  constents from '../../constents';
 import FooterLayout from './FooterLayout.vue';
 import HeaderLayout from './HeaderLayout.vue';
 import SidebarLayout from './SidebarLayout.vue';
-const token = inject('token');
-const baseUrl = inject('baseUrl');
+
+const token = 'token';
+const baseUrl = 'baseurl';
 
 
 $(document).ready(function () {

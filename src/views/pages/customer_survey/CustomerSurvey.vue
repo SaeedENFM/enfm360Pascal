@@ -1,35 +1,31 @@
  <script setup>
-import { ref } from "vue";
 import MasterLayout from "../../layouts/MasterLayout.vue";
 import SurveyHeader from "../../components/Survey/SurveyHeader.vue";
-import SurveyChecboxBody from "../../components/Survey/SurveyCheckboxBody.vue";
+import SurveyCheckbox from "../../components/Survey/SurveyCheckbox.vue";
 import SurveyText from "../../components/Survey/SurveyText.vue";
 import SurveySignature from "../../components/Survey/SurveySignature.vue";
-import services from "../../data";
+
+import { ref } from "vue";
+import { services, projectData, surveyData } from "../../data";
 
 import { RouterLink, useRouter } from "vue-router";
 
 const router = useRouter();
 
-const survey = {
-  title_en: "Customer Survey",
-  title_ar: "استبيان رضى العملاء",
-  description: `Your Opinion Counts - Our goal is your satisfaction. 
-                    We strive to provide the best services for you.
-                   So please take a moment to let us know how we are doing!`,
-};
+const survey = ref(surveyData);
 
-const project = ref({
-  name: "ENFM",
-  location: "Dubai",
-  date: "2024-02-16",
-});
+const project = ref(projectData);
 
-const servicesRadio = ref(services.filter((item) => item.type === "radio"));
+const servicesRadio =  ref(services.filter((item) => item.type === "radio"));
+//console.log(servicesRadio);
+
 const servicesText = ref(services.filter((item) => item.type === "text"));
+// console.log(servicesText);
+
 const servicesSignature = ref(
   services.filter((item) => item.type === "signature")
 );
+// console.log(servicesSignature);
 
 // onMounted(() => {
 //   $(".active").removeClass("active");
@@ -84,27 +80,32 @@ const servicesSignature = ref(
                 >
                 <span v-else>{{ survey.description }}</span>
               </p>
+            
+              <!-- load survey header-->
+              <SurveyHeader :dataProject="project" />
 
-              <!--@survey-input-text=""-->
-      
-              <SurveyHeader :projet="project" />
+              <form class="form">
+                <!--Loader survey checkbox type -->
+                <SurveyCheckbox
+                  v-for="(box,index) in servicesRadio"
+                  :key="box.id"
+                  :dataCheckbox="{data:box, position:index}"
+                />
 
-              <SurveyChecboxBody
-                v-for="box in servicesRadio"
-                :key="box.id"
-                :dataCheckbox="box"
-              />
+                <!--Loader survey text type -->
+                <SurveyText
+                  v-for="(tex,index) in servicesText"
+                  :key="tex.id"
+                  :dataText="{data:tex, position:index}"
+                /> 
 
-              <SurveyText
-                v-for="tex in servicesText"
-                :key="tex.id"
-                :dataText="tex"
-              />
-              <SurveySignature
-                v-for="signature in servicesSignature"
-                :key="signature.id"
-                :dataSignature="signature"
-              />
+                <!--Loader survey signature type-->
+                <SurveySignature
+                  v-for="(signature,index) in servicesSignature"
+                  :key="signature.id"
+                  :dataSignature="{data:signature, position:index}"
+                />
+              </form>
             </div>
           </div>
         </div>

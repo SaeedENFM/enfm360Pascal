@@ -1,7 +1,20 @@
+const surveyData = {
+  title_en: "Customer Survey",
+  title_ar: "استبيان رضى العملاء",
+  description: `Your Opinion Counts - Our goal is your satisfaction. 
+                    We strive to provide the best services for you.
+                   So please take a moment to let us know how we are doing!`,
+};
 
 
+const projectData =  {
+  name: "ENFM",
+  location: "Dubai",
+  date: "2024-02-16",
+}
 
-const responses = [
+
+const responses = 
     {
     'radio':[
   
@@ -40,18 +53,15 @@ const responses = [
       type: "radio",
       response:''
     }
-  ]},{
+  ],
   
-    'text': [{id: 't1', response:''}]
-    },
+    'text': [{id: 't1', response:''}],
   
-    {'signature': [{id: 'z1', response:''}]
-    }
-  
-  ];
+    'signature': [{id: 'z1', response:''}]
+  }
   
   
-  const Services = [
+  const services = [
     {
       id: "s1",
       service_en: "QUALITY OF SERVICES",
@@ -216,5 +226,5 @@ const responses = [
       }
   ]
 
-  export default Services
+  export { services , projectData, surveyData}
   
