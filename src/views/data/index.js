@@ -55,9 +55,9 @@ const responses =
     }
   ],
   
-    'text': [{id: 't1', response:''}],
+    'text': [{id: 't1', type: "text", response:''}],
   
-    'signature': [{id: 'z1', response:''}]
+    'textarea': [{id: 'z1', type: "textarea", response:''}]
   }
   
   
@@ -195,7 +195,7 @@ const responses =
       id: "s4",
       service_en: "OPEN ANSWERS",
       service_ar: "",
-      type:'text',
+      type:'textarea',
       assertions: [
         {
           id: "d1",
@@ -211,7 +211,7 @@ const responses =
       id: "s5",
       service_en: "SIGNATURE",
       service_ar: "",
-      type:'signature',
+      type:'text',
       assertions: [
           {
           id: "e1",

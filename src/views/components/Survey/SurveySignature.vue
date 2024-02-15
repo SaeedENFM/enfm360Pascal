@@ -1,16 +1,15 @@
 <script setup>
 import { ref } from "vue";
 const props = defineProps(["dataSignature"]);
-
 </script>
 
 <template>
   <div>
-   
-    <div
-      class="b-0 mt-1 p-12 mb-3"
-    >
-      <div v-for="sign in props.dataSignature.data.assertions" :key="sign.id">
+    <div class="mb-5 pb-4">
+      <div
+        v-for="(sign, index) in props.dataSignature.data.assertions"
+        :key="sign.id"
+      >
         <label>
           {{ sign.content_en }} <br />
           {{ sign.content_ar }}
@@ -18,11 +17,15 @@ const props = defineProps(["dataSignature"]);
         <!--Bind with model later-->
         <div class="col-auto">
           <input
-            class="form-control"
-            v-for="ans in sign.answers[props.dataSignature.data.type]"
+            type="text"
+            class="form-control text-center"
+            v-for="(ans, key) in sign.answers[props.dataSignature.data.type]"
             :key="ans.id"
-            value=""
-            type="file"
+            v-model="
+              props.dataSignature.data.assertions[index].answers[
+                props.dataSignature.data.type
+              ][key].response
+            "
           />
         </div>
       </div>

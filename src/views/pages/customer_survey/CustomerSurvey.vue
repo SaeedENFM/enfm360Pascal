@@ -11,21 +11,14 @@ import { services, projectData, surveyData } from "../../data";
 import { RouterLink, useRouter } from "vue-router";
 
 const router = useRouter();
-
 const survey = ref(surveyData);
-
 const project = ref(projectData);
 
-const servicesRadio =  ref(services.filter((item) => item.type === "radio"));
-//console.log(servicesRadio);
+const servicesRadio = ref(services.filter((item) => item.type === "radio"));
 
-const servicesText = ref(services.filter((item) => item.type === "text"));
-// console.log(servicesText);
+const servicesText = ref(services.filter((item) => item.type === "textarea"));
 
-const servicesSignature = ref(
-  services.filter((item) => item.type === "signature")
-);
-// console.log(servicesSignature);
+const servicesSignature = ref(services.filter((item) => item.type === "text"));
 
 // onMounted(() => {
 //   $(".active").removeClass("active");
@@ -69,6 +62,7 @@ const servicesSignature = ref(
             style="height: calc(-7px + 100vh)"
           >
             <div>
+              
               <!-- body content -->
               <h1 class="text-dark text-center fw-bold mt-1">
                 {{ survey.title_en }} - {{ survey.title_ar }}
@@ -80,30 +74,30 @@ const servicesSignature = ref(
                 >
                 <span v-else>{{ survey.description }}</span>
               </p>
-            
+
               <!-- load survey header-->
               <SurveyHeader :dataProject="project" />
 
               <form class="form">
                 <!--Loader survey checkbox type -->
                 <SurveyCheckbox
-                  v-for="(box,index) in servicesRadio"
+                  v-for="(box, index1) in servicesRadio"
                   :key="box.id"
-                  :dataCheckbox="{data:box, position:index}"
+                  :dataCheckbox="{ data: box, position: index1 }"
                 />
 
                 <!--Loader survey text type -->
                 <SurveyText
-                  v-for="(tex,index) in servicesText"
+                  v-for="(tex, index2) in servicesText"
                   :key="tex.id"
-                  :dataText="{data:tex, position:index}"
-                /> 
+                  :dataText="{ data: tex, position: index2 }"
+                />
 
                 <!--Loader survey signature type-->
                 <SurveySignature
-                  v-for="(signature,index) in servicesSignature"
+                  v-for="(signature, index3) in servicesSignature"
                   :key="signature.id"
-                  :dataSignature="{data:signature, position:index}"
+                  :dataSignature="{ data: signature, position: index3 }"
                 />
               </form>
             </div>
