@@ -1,13 +1,14 @@
  <script setup>
 import MasterLayout from "../../layouts/MasterLayout.vue";
 import SurveyHeader from "../../components/Survey/SurveyHeader.vue";
-import SurveyCheckbox from "../../components/Survey/SurveyCheckbox.vue";
+import SurveySubHeader from "../../components/Survey/SurveySubHeader.vue";
+import SurveyRadio from "../../components/Survey/SurveyRadio.vue";
+import SurveyTextArea from "../../components/Survey/SurveyTextArea.vue";
 import SurveyText from "../../components/Survey/SurveyText.vue";
-import SurveySignature from "../../components/Survey/SurveySignature.vue";
+import SurveyButton from "../../components/Survey/SurveyButton.vue";
 
 import { ref } from "vue";
 import { services, projectData, surveyData } from "../../data";
-
 import { RouterLink, useRouter } from "vue-router";
 
 const router = useRouter();
@@ -15,10 +16,9 @@ const survey = ref(surveyData);
 const project = ref(projectData);
 
 const servicesRadio = ref(services.filter((item) => item.type === "radio"));
-
-const servicesText = ref(services.filter((item) => item.type === "textarea"));
-
-const servicesSignature = ref(services.filter((item) => item.type === "text"));
+const servicesTextArea = ref(services.filter((item) => item.type === "textarea"));
+const servicesText = ref(services.filter((item) => item.type === "text"));
+const serviceResponses = ref([]);
 
 // onMounted(() => {
 //   $(".active").removeClass("active");
@@ -56,51 +56,48 @@ const servicesSignature = ref(services.filter((item) => item.type === "text"));
             </div>
           </div>
         </div>
+
+          <!-- body content -->
         <div class="content-body">
           <div
             class="d-flex justify-content-center"
             style="height: calc(-7px + 100vh)"
           >
-            <div>
+            <div class="row row-auto m-3">
+              <div class="col-auto col-sm-12 col-md-12 col-lg-12">
 
-              <!-- body content -->
-              <h1 class="text-dark text-center fw-bold mt-1">
-                {{ survey.title_en }} - {{ survey.title_ar }}
-              </h1>
-              <p class="fs-4 p-1">
-                <span v-if="survey?.description.split('-').length">
-                  <strong>{{ survey.description.split("-")[0] }} - </strong>
-                  {{ survey.description.split("-")[1] }}</span
-                >
-                <span v-else>{{ survey.description }}</span>
-              </p>
+               <!-- Load survey header-->
+              <SurveyHeader :dataSurvey="survey" />
 
-              <!-- load survey header-->
-              <SurveyHeader :dataProject="project" />
+              <!-- Load survey subheader-->
+              <SurveySubHeader :dataProject="project" />
 
-              <form class="form">
                 <!--Loader survey checkbox type -->
-                <SurveyCheckbox
+                <SurveyRadio
                   v-for="(box, index1) in servicesRadio"
                   :key="box.id"
-                  :dataCheckbox="{ data: box, position: index1 }"
+                  :dataRadio="{ data: box, position: index1 }"
                 />
 
-                <!--Loader survey text type -->
-                <SurveyText
-                  v-for="(tex, index2) in servicesText"
+                <!--Loader survey textarea type -->
+                <SurveyTextArea
+                  v-for="(tex, index2) in servicesTextArea"
                   :key="tex.id"
                   :dataText="{ data: tex, position: index2 }"
                   :class="mt-2"
                 />
 
-                <!--Loader survey signature type-->
-                <SurveySignature
-                  v-for="(signature, index3) in servicesSignature"
+                <!--Loader survey text type-->
+                <SurveyText
+                  v-for="(signature, index3) in servicesText"
                   :key="signature.id"
                   :dataSignature="{ data: signature, position: index3 }"
                 />
-              </form>
+
+                <!--Save survey -->
+                <SurveyButton :dataSubmission="serviceResponses" />
+            
+            </div>
             </div>
           </div>
         </div>
@@ -110,9 +107,7 @@ const servicesSignature = ref(services.filter((item) => item.type === "text"));
     <!-- END: Content-->
   </MasterLayout>
 </template>
-  
- 
-  
+    
 <style>
 .dtr-bs-modal table tbody tr:first-child {
   display: none !important;

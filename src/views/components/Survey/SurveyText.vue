@@ -1,32 +1,34 @@
 <script setup>
 import { ref } from "vue";
-const props = defineProps(["dataText"]);
+const props = defineProps(["dataSignature"]);
 </script>
 
 <template>
-  <div>
-    <div class="mb-2">
+  <div class="card p-1">
+    <div class="row">
       <div
-        v-for="(survey, index) in props.dataText.data.assertions"
-        :key="survey.id"  class="text-left"
+        v-for="(sign, index) in props.dataSignature.data.assertions"
+        :key="sign.id"  class="col col-12 col-lg-12 text-right"
       >
-        <label class="mb-1">
-          {{ survey.content_en }} - {{ survey.content_ar }}
+        <label class="mt-1 mb-1">
+          {{ sign.content_en }} -
+          {{ sign.content_ar }}
         </label>
-        <!--Bind with model-->
-        <div class="col-auto">
-          <textarea
-            class="form-control"
-            v-for="(answer, key) in survey.answers[props.dataText.data.type]"
-            :key="answer.id"
-            v-model="
-              props.dataText.data.assertions[index].answers[
-                props.dataText.data.type
-              ][key].response
-            "
-          >
-          </textarea>
-        </div>
+        <!--Bind with model later-->
+       <div class="mb-1">
+          <input
+                  type="text"
+                  placeholder="Enter a text"
+                  class="form-control text-left"
+                  v-for="(ans, key) in sign.answers[props.dataSignature.data.type]"
+                  :key="ans.id"
+                  v-model="
+                    props.dataSignature.data.assertions[index].answers[
+                      props.dataSignature.data.type
+                    ][key].response
+                  "
+                />
+       </div>
       </div>
     </div>
   </div>
