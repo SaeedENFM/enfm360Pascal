@@ -6,8 +6,8 @@ var user = localStorage.user?JSON.parse(localStorage.user) : null;
 
 
 const token = user?.token ? user?.token : "eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IklDTVNDU1IiLCJ1c2VyX25hbWUiOiJJQ01TQ1NSIn0.0ZbKPG-l8ILtIKX2a3QwLXU_kZnCtqcenjw_nR7LlU4";
-// const baseUrl = 'http://localhost:8000/api/';
-const baseUrl = 'https://enfm360-backand.emiratesnfm.ae/api/'; 
+ const baseUrl = 'http://127.0.0.1:8000/api/';
+// const baseUrl = 'https://enfm360-backand.emiratesnfm.ae/api/'; 
 
 var isRtl = $('html').attr('data-textdirection') === 'rtl';
  
@@ -24,6 +24,9 @@ const state = reactive({
 const methods ={
     async apiCallFunction(apiEndPoint, parameters){
         return apiCallFunction(apiEndPoint, parameters);
+    }, 
+    async apiCallFunction2(apiEndPoint){
+        return apiCallFunction2(apiEndPoint);
     }, 
     successToastr(msg){
         successToastr(msg)
@@ -61,6 +64,18 @@ const methods ={
 
 };
 
+async function apiCallFunction2(apiEndPoint) {
+     
+    return axios.get(baseUrl+apiEndPoint,  {
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,  
+            'Access-Control-Allow-Origin': '*'
+        }
+    })
+}
+
+
 async function apiCallFunction(apiEndPoint, parameters) {
      
     return axios
@@ -72,7 +87,7 @@ async function apiCallFunction(apiEndPoint, parameters) {
                 'Authorization': `Bearer ${token}`,  
                 'Access-Control-Allow-Origin': '*',
                 // 'Access-Control-Allow-Origin': 'https://enfm360.emiratesnfm.ae'
-            },
+            }
         }
         )
       .then(async response => {
@@ -264,8 +279,6 @@ function priceFormat(price) {
     }
 }
 function savePriceFormat(price) {
-
-    
 
     if (price) {
         return price.replace(/,/g, ''); 

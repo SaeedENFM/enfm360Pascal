@@ -8,6 +8,7 @@ import DefaultPage from '../views/pages/dashboard/DefaultPage.vue';
 // --------- customer survey ---------
 
 import CustomerSurvey from '../views/pages/customer_survey/CustomerSurvey.vue';
+import CreateSurvey from '../views/pages/customer_survey/CreateSurvey.vue';
 
 
 var routes = [
@@ -50,21 +51,15 @@ var routes = [
     {
       path: '/customer-survey',
       name: 'customer-survey',
-      component: CustomerSurvey,
+      component: CustomerSurvey, // CreateSurvey
       meta: {
         title: 'Customer Survey',
         requiresAuth: true,
         authorize: [], 
-      }, 
-    }, 
-
-
-
-    
+      }
+    }    
   ];
 
-
- 
 
 export default {
     routes 

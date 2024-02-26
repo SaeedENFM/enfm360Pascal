@@ -2,8 +2,8 @@ const surveyData = {
   title_en: "Customer Survey",
   title_ar: "استبيان رضى العملاء",
   description: `Your Opinion Counts - Our goal is your satisfaction. 
-                    We strive to provide the best services for you.
-                   So please take a moment to let us know how we are doing!`,
+  We strive to provide the best services for you.
+  So please take a moment to let us know how we are doing!`,
 };
 
 
@@ -23,41 +23,47 @@ const responsesChoices =
       answer_en: "Strongly Disagree",
       answer_ar: "لا أوافق بشدة",
       type: "radio",
-      response:false
+      choice:false,
+      response:"",
+    
     },
     {
       id: "r2",
       answer_en: "Disagree",
       answer_ar: "لا أوافق)",
       type: "radio",
-      response:false
+      choice:false,
+      response:""
     },
     {
       id: "r3",
       answer_en: "Neutral",
       answer_ar: "صحيح لحد ما)",
       type: "radio",
-       response:false
+      choice:false,
+      response:""
     },
     {
       id: "r4",
       answer_en: "Agree",
-      answer_ar: "أوافق)",
+      answer_ar: "أوافق",
       type: "radio",
-       response:false
+      choice:false,
+      response:""
     },
     {
       id: "r5",
       answer_en: "Strongly Agree",
-      answer_ar: "أوافق بشدة)",
+      answer_ar: "أوافق بشدة",
       type: "radio",
-      response:false
+      choice:false,
+      response:""
     }
   ],
   
-    'text': [{id: 't1', type: "text", response:''}],
+    'text': [{id: 't1', type: "text", answer_en: "Enter a text", answer_ar:"", response:''}],
   
-    'textarea': [{id: 'z1', type: "textarea", response:''}]
+    'textarea': [{id: 'z1', type: "textarea", answer_en: "Enter a comment", answer_ar:"", response:''}]
   }
   
   
@@ -113,7 +119,7 @@ const responsesChoices =
     {
       id: "s2",
       service_en: "MANAGEMENT OF SERVICES",
-      service_ar: "إدارة الخدمات ",
+      service_ar: "إدارة الخدمات",
       type:'radio',
       assertions: [
         {
@@ -143,7 +149,7 @@ const responsesChoices =
           content_en: `We have a clear process that can be followed for escalation 
      of any challenges or issues`,
           content_ar:
-            "في حال عدم التجاوب من قبل فريق المخصص للأعمال أو في الأزمات فان عملية التصعيد للإدارة العليا واضحة وفعالة ",
+            "في حال عدم التجاوب من قبل فريق المخصص للأعمال أو في الأزمات فان عملية التصعيد للإدارة العليا واضحة وفعالة",
             answers : responsesChoices,
             reponse: ''
         },
@@ -153,7 +159,7 @@ const responsesChoices =
           service_id: "s2",
           content_en: `We encourage constructive feedback on our services to support
      improvements`,
-          content_ar: "نعمل بملاحظاتكم على أدائنا ونستجيب لها بكفاءة ",
+          content_ar: "نعمل بملاحظاتكم على أدائنا ونستجيب لها بكفاءة",
           answers : responsesChoices,
           reponse: ''
         },
@@ -161,7 +167,7 @@ const responsesChoices =
           id: "b5",
           service_id: "s2",
           content_en: `We take ownership of the services provided`,
-          content_ar: "فريقنا متمكن و محترف في الخدمات المقدمة ",
+          content_ar: "فريقنا متمكن و محترف في الخدمات المقدمة",
           answers : responsesChoices,
           reponse: ''
         },
@@ -188,7 +194,7 @@ const responsesChoices =
           content_en: `We enable you to concentrate on your core business 
      whilst we manage your facilities services in the background`,
           content_ar:
-            "حن نتيح لك التركيز على عملك الأساسي بينما ندير خدمات المرافق الخاصة بك ",
+            "حن نتيح لك التركيز على عملك الأساسي بينما ندير خدمات المرافق الخاصة بك",
             answers : responsesChoices,
             reponse: ''
         },
@@ -198,7 +204,7 @@ const responsesChoices =
           content_en: `You would consider EnFM to support you with other business 
       solutions we provide`,
           content_ar:
-            "تنظرون لإمكانية اعتماد شركتنا لخدمات أخرى نؤديها ولا نقدمها لكم حالياً ",
+            "تنظرون لإمكانية اعتماد شركتنا لخدمات أخرى نؤديها ولا نقدمها لكم حالياً",
             answers : responsesChoices,
             reponse: ''
         }
@@ -214,7 +220,7 @@ const responsesChoices =
           id: "d1",
           service_id: "s4",
           content_en:
-            "Comments and Additional Feedback ",
+            "Comments and Additional Feedback",
           content_ar: "التعليقات الإضافية",
           answers : responsesChoices,
           reponse: []

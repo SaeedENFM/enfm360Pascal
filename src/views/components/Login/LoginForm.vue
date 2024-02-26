@@ -97,10 +97,8 @@ const errorMessage = ref(null);
 // const baseUrl = 'https://enfm360-backand.emiratesnfm.ae/api/';
 
 function login() {
- 
 
     // addOverlay(); 
- 
     if(username.value && password.value){
       $('.login-spinner').removeClass('d-none');
       $('.login-text').addClass('d-none'); 

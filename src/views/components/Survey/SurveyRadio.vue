@@ -1,15 +1,22 @@
 <script setup>
 import { ref } from "vue";
 const props = defineProps(["dataRadio"]);
+const emit = defineEmits(['changeRadioValue']);
 
-function updatedSurveResponse(index, key) {
-  console.log(index);
-  console.log(key);
+function updatedSurveyRadioResponse(index, key) {
+  emit('changeRadioValue',{
+    s_index : props.dataRadio.position,
+    index, 
+     key, 
+    choice: props.dataRadio.data.assertions[index].reponse ? true:false,
+    value: props.dataRadio.data.assertions[index].reponse 
+  })
+
 }
 </script>
 
 <template>
-  <div class="card">
+  <div class="card" v-if="props.dataRadio">
     <div class="row">
       <div class="col col-12 col-lg-12">
         <table class="table table-fixed border border-collapse">
@@ -70,18 +77,10 @@ function updatedSurveResponse(index, key) {
                   <input
                     class="form-check-input"
                     :name="'surveyRadio' + assertion.id + index + key"
-                    :value="
-                      props.dataRadio.data.assertions[index].answers[
-                        props.dataRadio.data.type
-                      ][key].id
-                    "
-                    @change="updatedSurveResponse(index, key)"
-                    :checked="
-                      props.dataRadio.data.assertions[index].answers[
-                        props.dataRadio.data.type
-                      ][key].response
-                    "
-                    v-model="props.dataRadio.data.assertions[index].response"
+                    @change="updatedSurveyRadioResponse(index, key)"
+                    :value="props.dataRadio.data.assertions[index].answers[props.dataRadio.data.type][key].id"
+                    :checked="props.dataRadio.data.assertions[index].answers[props.dataRadio.data.type][key].reponse"
+                    v-model="props.dataRadio.data.assertions[index].reponse"
                     :id="assertion.id + answer.id + key"
                     type="radio"
                   />

@@ -1,31 +1,26 @@
  <script setup>
 import MasterLayout from "../../layouts/MasterLayout.vue";
-import SurveyHeader from "../../components/Survey/SurveyHeader.vue";
-import SurveySubHeader from "../../components/Survey/SurveySubHeader.vue";
-import SurveyRadio from "../../components/Survey/SurveyRadio.vue";
-import SurveyTextArea from "../../components/Survey/SurveyTextArea.vue";
-import SurveyText from "../../components/Survey/SurveyText.vue";
-import SurveyButton from "../../components/Survey/SurveyButton.vue";
-
-import { ref } from "vue";
-import { services, projectData, surveyData } from "../../data";
+import AnswerSurvey from "../../pages/customer_survey/AnswerSurvey.vue";
+import StatsSurvey from "../../pages/customer_survey/StatsSurvey.vue";
+import CreateSurvey from "../../pages/customer_survey/CreateSurvey.vue";
+import ListSurvey from "../../pages/customer_survey/ListSurveys.vue";
 import { RouterLink, useRouter } from "vue-router";
+import { onUnmounted, ref } from "vue";
 
 const router = useRouter();
-const survey = ref(surveyData);
-const project = ref(projectData);
-
-const servicesRadio = ref(services.filter((item) => item.type === "radio"));
-const servicesTextArea = ref(services.filter((item) => item.type === "textarea"));
-const servicesText = ref(services.filter((item) => item.type === "text"));
-const serviceResponses = ref([]);
-
 // onMounted(() => {
 //   $(".active").removeClass("active");
 //   var currentModule = $('.router-link-active').parent().parent().parent().prop('id');
 //   $("#"+currentModule).addClass("active");
 
 // });
+
+const showTab = ref(false);
+
+onUnmounted(() => {
+  showTab.value = true;
+});
+
 </script>
 
 <template>
@@ -57,47 +52,110 @@ const serviceResponses = ref([]);
           </div>
         </div>
 
-          <!-- body content -->
+        <!-- body content -->
         <div class="content-body">
           <div
             class="d-flex justify-content-center"
             style="height: calc(-7px + 100vh)"
           >
-            <div class="row row-auto m-3">
-              <div class="col-auto col-sm-12 col-md-12 col-lg-12">
+            <!-- Load Answer content -->
 
-               <!-- Load survey header-->
-              <SurveyHeader :dataSurvey="survey" />
+            <div class="m-1">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="surveys-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#surveys"
+                    type="button"
+                    role="tab"
+                    aria-controls="surveys"
+                    :aria-selected="showTab"
+                  >
+                     Surveys
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="create-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#create"
+                    type="button"
+                    role="tab"
+                    aria-controls="create"
+                    :aria-selected="!showTab"
+                  >
+                    Create Survey
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="answers-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#answers"
+                    type="button"
+                    role="tab"
+                    aria-controls="answers"
+                     :aria-selected="!showTab"
+                  >
+                    Answers
+                  </button>
+                </li>
 
-              <!-- Load survey subheader-->
-              <SurveySubHeader :dataProject="project" />
+               <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="stats-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#stats"
+                    type="button"
+                    role="tab"
+                    aria-controls="stats"
+                     :aria-selected="!showTab"
+                  >
+                    Stats
+                  </button>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div
+                  class="tab-pane fade"
+                  :class="{'show active' : showTab}"
+                  id="surveys"
+                  role="tabpanel"
+                  aria-labelledby="surveys-tab"
+                >
+                    <ListSurvey />
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="create"
+                  role="tabpanel"
+                  aria-labelledby="create-tab"
+                >
+                 <CreateSurvey /> 
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="answers"
+                  role="tabpanel"
+                  aria-labelledby="answers-tab"
+                >
+                <AnswerSurvey  /> 
+                </div>
 
-                <!--Loader survey checkbox type -->
-                <SurveyRadio
-                  v-for="(box, index1) in servicesRadio"
-                  :key="box.id"
-                  :dataRadio="{ data: box, position: index1 }"
-                />
-
-                <!--Loader survey textarea type -->
-                <SurveyTextArea
-                  v-for="(tex, index2) in servicesTextArea"
-                  :key="tex.id"
-                  :dataText="{ data: tex, position: index2 }"
-                  :class="mt-2"
-                />
-
-                <!--Loader survey text type-->
-                <SurveyText
-                  v-for="(signature, index3) in servicesText"
-                  :key="signature.id"
-                  :dataSignature="{ data: signature, position: index3 }"
-                />
-
-                <!--Save survey -->
-                <SurveyButton :dataSubmission="serviceResponses" />
-            
-            </div>
+                <div
+                  class="tab-pane fade"
+                  id="stats"
+                  role="tabpanel"
+                  aria-labelledby="stats-tab"
+                >
+               <StatsSurvey />
+                </div>
+              </div>
             </div>
           </div>
         </div>
